@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\adminController; 
+use  App\Http\Controllers\siswaCRUD; 
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,8 @@ use  App\Http\Controllers\adminController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('admin_dashboard');
 });
 
 Route::get('/admin', [adminController::class, 'index']);
-Route::get('/admin/siswa', [adminController::class, 'SiswaData']);
+Route::resource('/admin/siswa', siswaCRUD::class);

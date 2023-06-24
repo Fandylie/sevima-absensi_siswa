@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('agama', 10)->nullable();
             $table->string('tempatlahir', 100);
             $table->date('tanggallahir'); 
-            $table->date('tahunmasuk');
+            $table->year('tahunmasuk');
             $table->timestamps();
         });
     }

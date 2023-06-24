@@ -10,31 +10,23 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>Email</th>
+                    <th>kelas</th>
+                    <th>lainnya</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Steve</td>
-                    <td>Jobs</td>
-                    <td>@steve</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Simon</td>
-                    <td>Philips</td>
-                    <td>@simon</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Jane</td>
-                    <td>Doe</td>
-                    <td>@jane</td>
-                </tr>
+                @foreach ($datasiswa as $item)
+                    <tr>
+                        <td>1</td>
+                        <td>Steve</td>
+                        <td>Jobs</td>
+                        <td>@steve</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

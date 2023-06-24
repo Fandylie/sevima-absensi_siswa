@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\tb_siswa;
+
 
 class siswaCRUD extends Controller
 {
@@ -14,6 +16,13 @@ class siswaCRUD extends Controller
     public function index()
     {
         //
+        
+        $datasiswa = tb_siswa::all();
+
+        
+        return view('admin_dataSiswa')->with([
+            'datasiswa'=>$datasiswa
+        ]);
     }
 
     /**
@@ -24,6 +33,10 @@ class siswaCRUD extends Controller
     public function create()
     {
         //
+        return view('admin_tambah_siswa')->with([
+            'tambahsiswa' => true,
+        ]);    
+
     }
 
     /**

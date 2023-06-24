@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class tb_kelas extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'namakelas',
+        'walikelas',
+        'tahunajaran',
+    ];
+
 }

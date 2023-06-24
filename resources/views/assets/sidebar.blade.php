@@ -1,3 +1,17 @@
+@php
+    $dashboard_sesion = '';
+    $datasiswa_sesion = '';
+    $tambahsiswa_sesion = '';
+
+    if (isset($datasiswa)) {
+        $datasiswa_sesion = 'active';
+    }elseif(isset($dashboard)){
+        $dashboard_sesion = 'active';
+    }elseif(isset($tambahsiswa)) {
+        $tambahsiswa_sesion = 'active';
+    }
+@endphp
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
         <a href="index.html"><img src="assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
@@ -56,13 +70,20 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{url('/admin')}}" class="{{$dashboard_sesion}}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                 <li>
-                    <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Siswa</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                    <div id="subPages" class="collapse ">
+                    <a href="#subPages" data-toggle="collapse" class="@if($datasiswa_sesion == 'active' || $tambahsiswa_sesion == 'active') {{'active'}} @else {{'collapsed'}} @endif" ><i class="lnr lnr-file-empty"></i> <span>Siswa</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        @if ($datasiswa_sesion == 'active' || $tambahsiswa_sesion == 'active')
+                            <div id="subPages" class="collapse in" style="height: 124px;">
+                            
+                        @else
+                            {{-- {{$datasiswa_sesion}} --}}
+                            <div id="subPages" class="collapse">
+                            
+                        @endif
                         <ul class="nav">
-                            <li><a href="{{url('admin/siswa')}}" class="">Data Siswa</a></li>
-                            <li><a href="page-login.html" class="">Tambah Siswa</a></li>
+                            <li><a href="{{url('admin/siswa')}}" class="{{$datasiswa_sesion}}">Data Siswa</a></li>
+                            <li><a href="{{url('admin/siswa/create')}}" class="{{$tambahsiswa_sesion}}">Tambah Siswa</a></li>
                             <li><a href="page-login.html" class="">Rekap Absen</a></li>
                         </ul>
                     </div>

@@ -37,16 +37,15 @@
 					</div>
 					<div class="right">
 						<div class="overlay"></div>
-						<div class="content text">
-							<h1 class="heading">Absen Siswa </h1>
-							<p>by The Fandy</p>
-						</div>
+						@include('parts/botChat')
+
 					</div>
-					<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
 	</div>
+	
+
 </body>
 @include('assets/js_conect_clorofil')
 </html>

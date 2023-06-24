@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('tb_absens', function (Blueprint $table) {
             $table->id();
-            $table->string('nisn', 11);
+            $table->string('nis', 11);
             $table->date('tanggalabsen');
-            $table->string('tempattempat');
+            $table->string('tempatabsen');
             $table->timestamps();
         });
     }

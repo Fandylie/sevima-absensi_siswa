@@ -10,7 +10,7 @@ class tb_absen extends Model
     use HasFactory;
     
     protected $fillable = [
-        'nisn',
+        'nis',
         'tanggalabsen',
         'tempatabsen',
     ];

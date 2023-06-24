@@ -141,7 +141,8 @@ class siswaCRUD extends Controller
     {
         //
 
-        tb_siswa::where('id',$id)->delete();
+        tb_siswa::where('nisn',$id)->delete();
+        return redirect()->back()->with('success','Berhasil menghapus siswa');
 
     }
 }

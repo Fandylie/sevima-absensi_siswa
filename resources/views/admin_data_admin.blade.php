@@ -28,7 +28,7 @@
                             <form action="{{url('admin/admin/'.$item->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger btn-sm">Hapus</button>
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda ingin menghapus Admin ini?')">Hapus</button>
                             </form>
                         </td>
                     </tr>

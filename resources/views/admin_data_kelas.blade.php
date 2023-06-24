@@ -31,7 +31,7 @@
                             <form action="{{url('admin/kelas/'.$item->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger btn-sm">Hapus</button>
+                                <button onclick="return confirm('Apakah anda ingin menghapus kelas ini?')" class="btn btn-danger btn-sm">Hapus</button>
                             </form>
                         </td>
                     </tr>

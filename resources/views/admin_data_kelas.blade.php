@@ -4,25 +4,23 @@
 
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title">Data Siswa</h3>
+        <h3 class="panel-title">Data Kelas</h3>
     </div>
     <div class="panel-body">
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>NIS</th>
-                    <th>Nama</th>
-                    <th>Kelas</th>
-                    <th>Email</th>
-                    <th>lainnya</th>
+                    <th>Nama Kelas</th>
+                    <th>Wali Kelas</th>
+                    <th>Tahun Ajaran</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                     $i =1;
                 @endphp
-                @foreach ($datasiswa as $item)
+                {{-- @foreach ($datasiswa as $item)
                     <tr>
                         <td>{{$i}}</td>
                         <td>{{$item->nis}}</td>
@@ -39,7 +37,7 @@
                     @php
                         $i++;
                     @endphp
-                @endforeach
+                @endforeach --}}
             </tbody>
         </table>
     </div>

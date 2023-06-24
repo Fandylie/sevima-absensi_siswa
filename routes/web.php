@@ -25,5 +25,5 @@ Route::post('/absen', [absenControler::class, 'absen']);
 
 
 Route::get('/admin', [adminController::class, 'index']);
+Route::get('/admin/rekap', [adminController::class, 'rekap']);
 Route::resource('/admin/siswa', siswaCRUD::class);
-Route::post('/rekap', [absenControler::class, 'rekap']);

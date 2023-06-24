@@ -2,6 +2,7 @@
     $dashboard_sesion = '';
     $datasiswa_sesion = '';
     $tambahsiswa_sesion = '';
+    $rekapsiswa_sesion = '';
 
     if (isset($datasiswa)) {
         $datasiswa_sesion = 'active';
@@ -9,6 +10,8 @@
         $dashboard_sesion = 'active';
     }elseif(isset($tambahsiswa)) {
         $tambahsiswa_sesion = 'active';
+    }elseif(isset($rekap)){
+        $rekapsiswa_sesion = 'active';
     }
 @endphp
 
@@ -72,8 +75,8 @@
             <ul class="nav">
                 <li><a href="{{url('/admin')}}" class="{{$dashboard_sesion}}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                 <li>
-                    <a href="#subPages" data-toggle="collapse" class="@if($datasiswa_sesion == 'active' || $tambahsiswa_sesion == 'active') {{'active'}} @else {{'collapsed'}} @endif" ><i class="lnr lnr-file-empty"></i> <span>Siswa</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                        @if ($datasiswa_sesion == 'active' || $tambahsiswa_sesion == 'active')
+                    <a href="#subPages" data-toggle="collapse" class="@if($datasiswa_sesion == 'active' || $tambahsiswa_sesion == 'active' || $rekapsiswa_sesion == 'active') {{'active'}} @else {{'collapsed'}} @endif" ><i class="lnr lnr-file-empty"></i> <span>Siswa</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        @if ($datasiswa_sesion == 'active' || $tambahsiswa_sesion == 'active' || $rekapsiswa_sesion == 'active')
                             <div id="subPages" class="collapse in" style="height: 124px;">
                             
                         @else
@@ -84,7 +87,7 @@
                         <ul class="nav">
                             <li><a href="{{url('admin/siswa')}}" class="{{$datasiswa_sesion}}">Data Siswa</a></li>
                             <li><a href="{{url('admin/siswa/create')}}" class="{{$tambahsiswa_sesion}}">Tambah Siswa</a></li>
-                            <li><a href="{{url('admin/rekap')}}" class="">Rekap Absen</a></li>
+                            <li><a href="{{url('admin/rekap')}}" class="{{$rekapsiswa_sesion}}">Rekap Absen</a></li>
                         </ul>
                     </div>
                 </li>

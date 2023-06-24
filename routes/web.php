@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\adminController; 
+use  App\Http\Controllers\absenControler; 
+use  App\Http\Controllers\sesionControler; 
 use  App\Http\Controllers\siswaCRUD; 
 use  App\Http\Controllers\kelasCRUD; 
 use  App\Http\Controllers\adminCRUD; 
-use  App\Http\Controllers\absenControler; 
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,18 @@ use  App\Http\Controllers\absenControler;
 */
 
 Route::get('/', function () {
-    return view('admin_dashboard');
+    return redirect('absen');;
 });
 
 Route::get('/absen', [absenControler::class, 'index']);
 Route::post('/absen', [absenControler::class, 'absen']);
 
 
-Route::get('/admin', [adminController::class, 'index']);
-Route::get('/admin/rekap', [adminController::class, 'rekap']);
-Route::resource('/admin/siswa', siswaCRUD::class);
-Route::resource('/admin/kelas', kelasCRUD::class);
-Route::resource('/admin/admin', adminCRUD::class);
+Route::get('/admin/login', [sesionControler::class, 'index'])->middleware('isTamu');
+Route::post('/admin/login', [sesionControler::class, 'ceklogin']);
+
+Route::get('/admin', [adminController::class, 'index'])->middleware('isLogin');
+Route::get('/admin/rekap', [adminController::class, 'rekap'])->middleware('isLogin');
+Route::resource('/admin/siswa', siswaCRUD::class)->middleware('isLogin');
+Route::resource('/admin/kelas', kelasCRUD::class)->middleware('isLogin');
+Route::resource('/admin/admin', adminCRUD::class)->middleware('isLogin');

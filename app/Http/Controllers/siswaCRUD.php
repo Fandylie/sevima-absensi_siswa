@@ -48,6 +48,47 @@ class siswaCRUD extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nisn' => 'required',
+            'nis' => 'required',
+            'nama' => 'required',
+            'kelas' => 'required',
+            'tempatlahir' => 'required',
+            'tanggallahir' => 'required',
+            'tahunmasuk' => 'required',
+        ],[
+            'nisn.required' => 'NISN Harus Di Isi',
+            'nis.required' => 'NIS Harus Di Isi',
+            'nama.required' => 'Nama Harus Di Isi',
+            'kelas.required' => 'Kelas Harus Di Pilih',
+            'tempatlahir.required' => 'Tempat Lahir Harus Di Isi',
+            'tanggallahir.required' => 'Tanggal Harus Di Isi',
+            'tahunmasuk.required' => 'Tahun Masuk Harus Di Pilih',
+        ]);
+
+        if(tb_siswa::where('nisn', $request->nisn)->first()){
+            return redirect()->back()->withInput()->with('danger','NISN sudah digunakan');
+        }
+
+        $data = [
+            'nisn' => $request->nisn,
+            'nis' => $request->nis,
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => $request->nisn,
+            'agama' => $request->agama,
+            'kelas' => $request->kelas,
+            'jeniskelamin' => $request->jeniskelamin,
+            'tempatlahir' => $request->tempatlahir,
+            'tanggallahir' => $request->tanggallahir,
+            'tahunmasuk' => $request->tahunmasuk,
+        ];
+
+
+        tb_siswa::create($data);
+
+        return redirect()->back()->with('success','Data berhasil ditambah password sama dengan nisn');
+
     }
 
     /**

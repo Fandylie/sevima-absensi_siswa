@@ -11,10 +11,10 @@
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>NIS</th>
                     <th>Nama</th>
                     <th>Kelas</th>
                     <th>Email</th>
-                    <th>kelas</th>
                     <th>lainnya</th>
                 </tr>
             </thead>
@@ -22,9 +22,16 @@
                 @foreach ($datasiswa as $item)
                     <tr>
                         <td>1</td>
-                        <td>Steve</td>
-                        <td>Jobs</td>
-                        <td>@steve</td>
+                        <td>{{$item->nis}}</td>
+                        <td>{{$item->nama}}</td>
+                        <td>{{$item->kelas}}</td>
+                        <td><a href="mailto:{{$item->email}}">{{$item->email}}</a></td>
+                        <td style="display: flex; gap:1vh">
+                            <a href="" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="">
+                                <button class="btn btn-danger btn-sm">Hapus</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -3,6 +3,7 @@
     $datasiswa_sesion = '';
     $tambahsiswa_sesion = '';
     $rekapsiswa_sesion = '';
+    $kelas_sesion = '';
 
     if (isset($datasiswa)) {
         $datasiswa_sesion = 'active';
@@ -12,6 +13,8 @@
         $tambahsiswa_sesion = 'active';
     }elseif(isset($rekap)){
         $rekapsiswa_sesion = 'active';
+    }elseif(isset($kelas)){
+        $kelas_sesion = 'active';
     }
 @endphp
 
@@ -92,7 +95,7 @@
                     </div>
                 </li>
                 <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Data Admin</span></a></li>
-                <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Kelas</span></a></li>
+                <li><a href="{{url('admin/kelas')}}" class="{{$kelas_sesion}}"><i class="lnr lnr-alarm"></i> <span>Kelas</span></a></li>
             </ul>
         </nav>
     </div>

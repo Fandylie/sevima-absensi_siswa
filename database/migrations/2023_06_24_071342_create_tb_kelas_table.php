@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('namakelas',20);
             $table->string('walikelas', 100);
-            $table->date('tahunajaran');
+            $table->year('tahunajaran');
             $table->timestamps();
         });
     }

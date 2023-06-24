@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\tb_kelas;
+
 
 class kelasCRUD extends Controller
 {
@@ -14,7 +16,11 @@ class kelasCRUD extends Controller
     public function index()
     {
         //
-        return view('admin_data_kelas');
+        $data = tb_kelas::all();
+        return view('admin_data_kelas')->with([
+            'kelas' =>true,
+            'data' => $data
+        ]);
     }
 
     /**
@@ -25,6 +31,7 @@ class kelasCRUD extends Controller
     public function create()
     {
         //
+        return view('admin_tambah_kelas');
     }
 
     /**
@@ -36,6 +43,24 @@ class kelasCRUD extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+
+            'namakelas' => 'required',
+            'walikelas' => 'required',
+
+        ],[
+            'namakelas.required' => 'Nama kelas belum di isi',
+            'walikelas.required' => 'Wali kelas belum di isi'
+        ]);
+
+        $data =[
+            'namakelas' => $request->namakelas,
+            'walikelas' => $request->walikelas,
+            'tahunajaran' => $request->tahunajaran
+        ];
+
+        tb_kelas::create($data);
+        return redirect('admin/kelas')->with('success','Berhasil menambah kelas');
     }
 
     /**
@@ -81,5 +106,10 @@ class kelasCRUD extends Controller
     public function destroy($id)
     {
         //
+
+        tb_kelas::where('id',$id)->delete();
+
+        return redirect()->back()->with('success','Berhasil menghapus kelas');
+
     }
 }

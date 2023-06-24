@@ -3,8 +3,9 @@
 @section('contain')
 
 <div class="panel">
-    <div class="panel-heading">
+    <div class="panel-heading" style="display: flex; gap:5vh;">
         <h3 class="panel-title">Data Kelas</h3>
+        <a href="{{url('admin/kelas/create')}}" class="btn btn-success btn-sm">Tambah Kelas</a>
     </div>
     <div class="panel-body">
         <table class="table table-hover">
@@ -20,16 +21,16 @@
                 @php
                     $i =1;
                 @endphp
-                {{-- @foreach ($datasiswa as $item)
+                @foreach ($data as $item)
                     <tr>
                         <td>{{$i}}</td>
-                        <td>{{$item->nis}}</td>
-                        <td>{{$item->nama}}</td>
-                        <td>{{$item->kelas}}</td>
-                        <td><a href="mailto:{{$item->email}}">{{$item->email}}</a></td>
-                        <td style="display: flex; gap:1vh">
-                            <a href="" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="">
+                        <td>{{$item->namakelas}}</td>
+                        <td>{{$item->walikelas}}</td>
+                        <td>{{$item->tahunajaran}}</td>
+                        <td style="display: flex; gap:1vh"> 
+                            <form action="{{url('admin/kelas/'.$item->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
                                 <button class="btn btn-danger btn-sm">Hapus</button>
                             </form>
                         </td>
@@ -37,7 +38,7 @@
                     @php
                         $i++;
                     @endphp
-                @endforeach --}}
+                @endforeach
             </tbody>
         </table>
     </div>

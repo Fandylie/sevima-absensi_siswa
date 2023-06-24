@@ -8,44 +8,28 @@
     <title>Absen</title>
 </head>
 <body>
-    <div id="wrapper">
+    <div id="wrapper" >
         @include('assets/msg')
-        <div class="vertical-align-wrap">
-            <div class="vertical-align-middle">
-                <div class="auth-box ">
-					<div class="left">
-						<div class="content">
-							<div class="header">
-								<p class="lead">Absen Siswa</p>
-							</div>
-							<form class="form-auth-small" action="{{url('absen')}}" method="post">
-                                @csrf
-								<div class="form-group">
-									<label for="signin-email" class="control-label sr-only">NIS</label>
-									<input type="text" class="form-control" id="signin-email" name="nis" placeholder="NIS">
-								</div>
-								<div class="form-group">
-									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input type="password" class="form-control" id="signin-password" name="password" placeholder="Password">
-								</div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
-								<div class="bottom">
-									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="right">
-						<div class="overlay"></div>
-						@include('parts/botChat')
-
-					</div>
+		<center>
+			<form class="form-auth-small" action="{{url('absen')}}" method="post" style="background-color: white; width: 30vw; padding: 10vh; margin-top: 15vh; border-radius: 3vh; box-shadow: solid 1px 2px 3px black;">
+				@csrf
+				<div class="form-group">
+					<label for="signin-email" class="control-label sr-only">NIS</label>
+					<input type="text" class="form-control" id="signin-email" name="nis" placeholder="NIS">
 				</div>
-			</div>
-		</div>
-	</div>
-	
+				<div class="form-group">
+					<label for="signin-password" class="control-label sr-only">Password</label>
+					<input type="password" class="form-control" id="signin-password" name="password" placeholder="Password">
+				</div>
+				<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+				<div class="bottom">
+					<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
+				</div>
+			</form>
+		</center>
 
+	</div>
+	@include('parts/botChat')
 </body>
 @include('assets/js_conect_clorofil')
 </html>

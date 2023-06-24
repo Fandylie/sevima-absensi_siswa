@@ -4,8 +4,12 @@
 	<link rel="stylesheet" href="{{url('css/bot.css')}}">
 
 
-    <div class="wrapper">
-        <div class="title">Chatbot</div>
+    <div class="bablechat" id="bablechat"><img src="{{url('img/botchat.png')}}" alt=""></div>
+
+
+    <div class="wrapper" id="contain">
+        <div class="title">Chatbot <button onclick="closechat()"> X close</button></div>
+        
         <div class="form">
             <div class="bot-inbox inbox">
                 <div class="icon">
@@ -31,8 +35,14 @@
                 if(e.which == 13){
                     kirimpesan();
                 }
-
             })
+
+            $('#bablechat').on("click",function () {
+                $('#contain').css('opacity',"1");
+                $('#bablechat').css('opacity',"0");
+                
+            })
+
         });
 
         function kirimpesan(){
@@ -54,5 +64,10 @@
                     }
                 });
             };
+
+            function closechat() {
+                $('#contain').css('opacity',0)
+                $('#bablechat').css('opacity',1)
+            }
 
     </script>

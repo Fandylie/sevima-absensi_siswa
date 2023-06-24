@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\adminController; 
 use  App\Http\Controllers\absenControler; 
 use  App\Http\Controllers\sesionControler; 
+use  App\Http\Controllers\chataiControler; 
 use  App\Http\Controllers\siswaCRUD; 
 use  App\Http\Controllers\kelasCRUD; 
 use  App\Http\Controllers\adminCRUD; 
-use  App\Http\Controllers\chatai; 
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ Route::get('/', function () {
 Route::get('/absen', [absenControler::class, 'index']);
 Route::post('/absen', [absenControler::class, 'absen']);
 
-Route::post('/bot', [chatai::class, 'index']);
+Route::get('/bot', [chataiControler::class, 'index']);
 
 Route::get('/admin/login', [sesionControler::class, 'index'])->middleware('isTamu');
 Route::post('/admin/login', [sesionControler::class, 'ceklogin']);

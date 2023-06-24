@@ -1,8 +1,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-	<link rel="stylesheet" href="{{url('css/bot.css')}}">
     <meta name="_token" content="{!! csrf_token() !!}">
+	<link rel="stylesheet" href="{{url('css/bot.css')}}">
 
 
     <div class="bablechat" id="bablechat"><img src="{{url('img/botchat.png')}}" alt=""></div>
@@ -41,6 +41,7 @@
             $('#bablechat').on("click",function () {
                 $('#contain').css('opacity',"1");
                 $('#bablechat').css('opacity',"0");
+                $('#data').focus();
                 
             })
 
@@ -61,14 +62,14 @@
                 // start ajax code
                 $.ajax({
                     url: '/bot',
-                    type: 'POST',
-                    data: {'_token' : CSRF_TOKEN,'text='+$value, }
+                    type: 'get',
+                    data:'text='+$value,
                     success: function(result){
                         $replay = '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>'+ result +'</p></div></div>';
                         $(".form").append($replay);
                         // when chat goes down the scroll bar automatically comes to the bottom
                         $(".form").scrollTop($(".form")[0].scrollHeight);
-                    }
+                    },
                 });
             };
 

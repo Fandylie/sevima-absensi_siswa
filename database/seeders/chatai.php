@@ -27,11 +27,11 @@ class chatai extends Seeder
         ]);
         DB:: table('tb_chatais')->insert([
             'pertanyaan' => 'Cara Ubah Password||ubah password||lupa password',
-            'jawaban' => 'Silahkan hubungi admin atau guru piket',
+            'jawaban' => 'Silahkan hubungi admin atau guru piket untuk informasi password yang lebih lanjut',
         ]);
         DB:: table('tb_chatais')->insert([
             'pertanyaan' => 'nis saya||cara melihat nis||berapa nis saya',
-            'jawaban' => 'Silahkan cek pada kartu pelajar anda',
+            'jawaban' => 'untuk NIS anda bisa cek pada kartu pelajar anda',
         ]);
         DB:: table('tb_chatais')->insert([
             'pertanyaan' => 'Kenapa harus absen||fungsi absen',

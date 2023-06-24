@@ -20,7 +20,7 @@ class siswaCRUD extends Controller
         $datasiswa = tb_siswa::all();
 
         
-        return view('admin_dataSiswa')->with([
+        return view('admin_data_siswa')->with([
             'datasiswa'=>$datasiswa
         ]);
     }

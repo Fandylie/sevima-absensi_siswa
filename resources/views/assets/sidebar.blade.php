@@ -84,7 +84,7 @@
                         <ul class="nav">
                             <li><a href="{{url('admin/siswa')}}" class="{{$datasiswa_sesion}}">Data Siswa</a></li>
                             <li><a href="{{url('admin/siswa/create')}}" class="{{$tambahsiswa_sesion}}">Tambah Siswa</a></li>
-                            <li><a href="page-login.html" class="">Rekap Absen</a></li>
+                            <li><a href="{{url('admin/rekap')}}" class="">Rekap Absen</a></li>
                         </ul>
                     </div>
                 </li>

@@ -1,14 +1,14 @@
 <!-- VENDOR CSS -->
-<link rel="stylesheet" href="assets_clorofil/vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets_clorofil/vendor/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets_clorofil/vendor/linearicons/style.css">
-<link rel="stylesheet" href="assets_clorofil/vendor/chartist/css/chartist-custom.css">
+<link rel="stylesheet" href="{{ URL ('assets_clorofil/vendor/bootstrap/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{ URL ('assets_clorofil/vendor/font-awesome/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{ URL ('assets_clorofil/vendor/linearicons/style.css')}}">
+<link rel="stylesheet" href="{{ URL ('assets_clorofil/vendor/chartist/css/chartist-custom.css')}}">
 <!-- MAIN CSS -->
-<link rel="stylesheet" href="{{url('assets_clorofil/css/main.css')}}">
+<link rel="stylesheet" href="{{ URL ('assets_clorofil/css/main.css')}}">
 <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-<link rel="stylesheet" href="{{url('assets_clorofil/css/demo.css')}}">
+<link rel="stylesheet" href="{{ URL ('assets_clorofil/css/demo.css')}}">
 <!-- GOOGLE FONTS -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 <!-- ICONS -->
-<link rel="apple-touch-icon" sizes="76x76" href="{{url('assets_clorofil/img/apple-icon.png')}}">
-<link rel="icon" type="image/png" sizes="96x96" href="{{url('assets_clorofil/img/favicon.png')}}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ URL ('assets_clorofil/img/apple-icon.png')}}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ URL ('assets_clorofil/img/favicon.png')}}">

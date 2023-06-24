@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use  App\Http\Controllers\adminController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin_dashboard');
+    return view('home');
 });
+
+Route::get('/admin', [adminController::class, 'index']);
+Route::get('/admin/siswa', [adminController::class, 'SiswaData']);

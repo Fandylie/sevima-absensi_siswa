@@ -8,23 +8,21 @@
     
     <title></title>
 </head>
-<body>
-
-    @include('assets/sidebar')
-
-    <!-- MAIN -->
-    <div class="main">
-        <!-- MAIN CONTENT -->
-        <div class="main-content">
-            <div class="container-fluid">
-
-                @include('assets/msg')
-                @yield('contain')
-            
+<body style="max-width:100vw;">
+        <!-- WRAPPER -->
+    <div id="wrapper">
+        @include('assets/sidebar')
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    @include('assets/msg')
+                    @yield('contain')
+                </div>
             </div>
         </div>
     </div>
-
     
 </body>
     @include('assets/js_conect_clorofil')

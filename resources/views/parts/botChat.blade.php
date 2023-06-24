@@ -2,6 +2,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 	<link rel="stylesheet" href="{{url('css/bot.css')}}">
+    <meta name="_token" content="{!! csrf_token() !!}">
 
 
     <div class="bablechat" id="bablechat"><img src="{{url('img/botchat.png')}}" alt=""></div>
@@ -51,11 +52,17 @@
                 $(".form").append($msg);
                 $("#data").val('');
                 
+                $.ajaxSetup({
+                    headers: { 'X-SCRF-Token' : $("meta[name='_token']").attr('content') } 
+                });
+                
+                var CSRF_TOKEN = $("meta[name='_token']").attr('content');
+
                 // start ajax code
                 $.ajax({
                     url: '/bot',
                     type: 'POST',
-                    data: 'text='+$value,
+                    data: {'_token' : CSRF_TOKEN,'text='+$value, }
                     success: function(result){
                         $replay = '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>'+ result +'</p></div></div>';
                         $(".form").append($replay);

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\adminController; 
 use  App\Http\Controllers\siswaCRUD; 
 use  App\Http\Controllers\kelasCRUD; 
+use  App\Http\Controllers\adminCRUD; 
 use  App\Http\Controllers\absenControler; 
 
 /*
@@ -29,3 +30,4 @@ Route::get('/admin', [adminController::class, 'index']);
 Route::get('/admin/rekap', [adminController::class, 'rekap']);
 Route::resource('/admin/siswa', siswaCRUD::class);
 Route::resource('/admin/kelas', kelasCRUD::class);
+Route::resource('/admin/admin', adminCRUD::class);

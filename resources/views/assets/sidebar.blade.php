@@ -4,6 +4,7 @@
     $tambahsiswa_sesion = '';
     $rekapsiswa_sesion = '';
     $kelas_sesion = '';
+    $admin_sesion = '';
 
     if (isset($datasiswa)) {
         $datasiswa_sesion = 'active';
@@ -15,39 +16,29 @@
         $rekapsiswa_sesion = 'active';
     }elseif(isset($kelas)){
         $kelas_sesion = 'active';
+    }elseif(isset($admin)){
+        $admin_sesion = 'active';
     }
 @endphp
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-        <a href="index.html"><img src="assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+        Absensi Siswa
     </div>
     <div class="container-fluid">
         <div class="navbar-btn">
             <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
         </div>
+    @if($datasiswa_sesion == 'active')
         <form class="navbar-form navbar-left">
             <div class="input-group">
                 <input type="text" value="" class="form-control" placeholder="Search dashboard...">
                 <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
             </div>
         </form>
+    @endif
         <div id="navbar-menu">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                        <i class="lnr lnr-alarm"></i>
-                        <span class="badge bg-danger">5</span>
-                    </a>
-                    <ul class="dropdown-menu notifications">
-                        <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
-                        <li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
-                        <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
-                        <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
-                        <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
-                        <li><a href="#" class="more">See all notifications</a></li>
-                    </ul>
-                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                     <ul class="dropdown-menu">
@@ -94,7 +85,7 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Data Admin</span></a></li>
+                <li><a href="{{url('admin/admin')}}" class="{{$admin_sesion}}"><i class="lnr lnr-cog"></i> <span>Data Admin</span></a></li>
                 <li><a href="{{url('admin/kelas')}}" class="{{$kelas_sesion}}"><i class="lnr lnr-alarm"></i> <span>Kelas</span></a></li>
             </ul>
         </nav>

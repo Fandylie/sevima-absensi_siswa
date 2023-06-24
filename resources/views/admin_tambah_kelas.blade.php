@@ -23,7 +23,7 @@
                 <input class="form-control" min="1900" max="2099" step="1" value="2022" name="tahunajaran" type="number">
             </div>
             <br>
-            <button type="submit" class="btn btn-success">Tambah Siswa</button>
+            <button type="submit" class="btn btn-success">Tambah Kelas</button>
         </div>
     </form>
 @endsection

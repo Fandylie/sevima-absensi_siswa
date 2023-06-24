@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @include('assets/css_conect_clorofil')
     
-    <title></title>
+    <title>{{$title}}</title>
 </head>
 <body style="max-width:100vw;">
         <!-- WRAPPER -->

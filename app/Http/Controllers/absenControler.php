@@ -49,8 +49,6 @@ class absenControler extends Controller
             tb_absen::create($data);
             
 
-            return 'berhasil login';
-
 
         }
         return redirect()->back()->withInput()->with('danger','NIS atau Password salah');

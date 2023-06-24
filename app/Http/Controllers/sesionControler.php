@@ -10,7 +10,9 @@ class sesionControler extends Controller
 {
     //
     function index(){
-        return view('login_admin');
+        return view('login_admin')->with([
+            'title'=>'Login'
+        ]);
     }
     
     function ceklogin(request $request){
@@ -33,6 +35,11 @@ class sesionControler extends Controller
         
         return redirect()->back()->with('danger','User Name atau Password salah');
         
+    }
+    
+    function logout(){
+        Auth::logout();
+        return  redirect('admin/login');
     }
 
 

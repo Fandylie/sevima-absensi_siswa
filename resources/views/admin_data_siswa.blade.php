@@ -31,8 +31,10 @@
                         <td><a href="mailto:{{$item->email}}">{{$item->email}}</a></td>
                         <td style="display: flex; gap:1vh">
                             <a href="" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="">
-                                <button class="btn btn-danger btn-sm">Hapus</button>
+                            <form action="{{url('admin/siswa/'.$item->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                             </form>
                         </td>
                     </tr>

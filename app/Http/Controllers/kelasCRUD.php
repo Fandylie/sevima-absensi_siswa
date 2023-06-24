@@ -18,6 +18,7 @@ class kelasCRUD extends Controller
         //
         $data = tb_kelas::all();
         return view('admin_data_kelas')->with([
+            'title' => 'Data Kelas',
             'kelas' =>true,
             'data' => $data
         ]);
@@ -31,7 +32,11 @@ class kelasCRUD extends Controller
     public function create()
     {
         //
-        return view('admin_tambah_kelas');
+        return view('admin_tambah_kelas')->with([
+            'title' => 'Tambah Kelas',
+            'kelas' =>true,
+
+        ]);
     }
 
     /**

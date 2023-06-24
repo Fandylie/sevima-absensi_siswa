@@ -21,6 +21,7 @@ class adminCRUD extends Controller
         $data = user::all();
 
         return view('admin_data_admin')->with([
+            'title'=>'Data Admin',
             'admin' =>true,
             'data' => $data
         ]);
@@ -34,7 +35,10 @@ class adminCRUD extends Controller
     public function create()
     {
         //
-        return view('admin_tambah_admin')->with('admin',true);
+        return view('admin_tambah_admin')->with([
+            'title'=>'Tambah Admin',
+            'admin'=>true
+        ]);
     }
 
     /**

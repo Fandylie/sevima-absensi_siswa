@@ -30,10 +30,10 @@
             <br>
             <select class="form-control input" name="kelas">
                 <option value="" disabled selected>Kelas</option>
-                <option value="RPL">RPL</option>
-                <option value="TKJ">TKJ</option>
-                <option value="AK">AK</option>
-                <option value="MM">MM</option>
+                @foreach ($kelas as $item)
+                <option value="{{$item->namakelas}}" >{{$item->namakelas}}</option>
+                
+                @endforeach
             </select>
             <br>
             <select class="form-control input" name="jeniskelamin">

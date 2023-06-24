@@ -31,9 +31,10 @@ Route::get('/bot', [chataiControler::class, 'index']);
 
 Route::get('/admin/login', [sesionControler::class, 'index'])->middleware('isTamu');
 Route::post('/admin/login', [sesionControler::class, 'ceklogin']);
+Route::get('/admin/logout', [sesionControler::class, 'logout']);
 
 Route::get('/admin', [adminController::class, 'index'])->middleware('isLogin');
 Route::get('/admin/rekap', [adminController::class, 'rekap'])->middleware('isLogin');
 Route::resource('/admin/siswa', siswaCRUD::class)->middleware('isLogin');
-Route::resource('/admin/kelas', kelasCRUD::class)->middleware('isLogin');
 Route::resource('/admin/admin', adminCRUD::class)->middleware('isLogin');
+Route::resource('/admin/kelas', kelasCRUD::class)->middleware('isLogin');

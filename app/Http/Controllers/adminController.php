@@ -14,6 +14,7 @@ class adminController extends Controller
     function index(){
 
         return view('admin_dashboard')->with([
+           'title' =>'Dashboard',
             'dashboard' => true,
         ]);
     }
@@ -22,6 +23,7 @@ class adminController extends Controller
 
         $data = tb_absen::groupby('tanggalabsen')->get();
         return view('admin_rekap_siswa')->with([
+            'title' =>'Rekap',
             'rekap' =>true,
             'data' => $data,
             'jumlah'=>$data

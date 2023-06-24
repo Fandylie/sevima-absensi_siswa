@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\tb_siswa;
+use App\Models\tb_kelas;
 
 
 class siswaCRUD extends Controller
@@ -21,6 +22,7 @@ class siswaCRUD extends Controller
 
         
         return view('admin_data_siswa')->with([
+            'title' => 'Data Siswa',
             'datasiswa'=>$datasiswa
         ]);
     }
@@ -33,8 +35,12 @@ class siswaCRUD extends Controller
     public function create()
     {
         //
+
+        $kelas = tb_kelas::get('namakelas');
         return view('admin_tambah_siswa')->with([
+            'title' => 'Tambah Siswa',
             'tambahsiswa' => true,
+            'kelas' => $kelas
         ]);    
 
     }
@@ -134,5 +140,8 @@ class siswaCRUD extends Controller
     public function destroy($id)
     {
         //
+
+        tb_siswa::where('id',$id)->delete();
+
     }
 }

@@ -43,7 +43,7 @@ class kirimemail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: '',
         );
     }
 

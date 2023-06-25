@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\tb_siswa;
 use App\Models\tb_absen;
+use Illuminate\Support\Facades\Mail;
+use App\mail\kirimemail;
 
 
 class absenControler extends Controller
@@ -46,9 +48,10 @@ class absenControler extends Controller
 
             ];
 
+            
             tb_absen::create($data);
             
-
+            // Mail::to('fandiadisaputra53@gmail.com')->send(new kirimemail);
 
         }
         return redirect()->back()->withInput()->with('danger','NIS atau Password salah');

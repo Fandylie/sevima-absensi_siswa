@@ -1,8 +1,9 @@
 @extends('parts/dasar')
 
 @section('contain')
-    <form action="{{url('admin/siswa')}}" method="post">
+    <form action="{{url('admin/siswa/'.$data->nisn)}}" method="post">
         @csrf
+        @method('put')
         <div class="panel-heading">
             <h3 class="panel-title">Edit Siswa{{$data->nisn}}</h3>
         </div>
@@ -10,7 +11,7 @@
             <br>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input class="form-control" value="{{$data->nis}}" disabled name="nis" type="text">
+                <input class="form-control" value="{{$data->nis}}" disabled type="text">
             </div>
             <br>
             <div class="input-group">
@@ -24,7 +25,8 @@
             </div>
             <br>
             <select class="form-control input" name="kelas">
-                <option value="{{$data->kelas}}" disabled selected>{{$data->kelas}}</option>
+                <option disabled selected>{{$data->kelas}}</option>
+                <option value="{{$data->kelas}}" hidden selected>{{$data->kelas}}</option>
                 @foreach ($kelas as $item)
                 <option value="{{$item->namakelas}}" >{{$item->namakelas}}</option>
                 
@@ -32,13 +34,15 @@
             </select>
             <br>
             <select class="form-control input" name="jeniskelamin">
-                <option value="{{$data->jeniskelamin}}" disabled selected>{{$data->jeniskelamin}}</option>
+                <option disabled selected>{{$data->jeniskelamin}}</option>
+                <option value="{{$data->jeniskelamin}}" hidden selected>{{$data->jeniskelamin}}</option>
                 <option value="Laki-Laki">Laki-Laki</option>
                 <option value="Perempuan">Perempuan</option>
             </select>
             <br>
             <select class="form-control input" name="agama">
-                <option value="{{$data->agama}}" disabled selected>{{$data->agama}}</option>
+                <option disabled selected>{{$data->agama}}</option>
+                <option value="{{$data->agama}}" hidden selected>{{$data->agama}}</option>
                 <option value="Hindu">Hindu</option>
                 <option value="Islam">Islam</option>
                 <option value="Kristen">Kristen</option>
@@ -54,7 +58,7 @@
             <br>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input class="form-control" value="{{$data->tanggalalhir}}" name="tanggallahir" type="date">
+                <input class="form-control" value="{{$data->tanggallahir}}" name="tanggallahir" type="date">
             </div>
             <br>
             <div class="input-group">
@@ -62,7 +66,7 @@
                 <input class="form-control" min="1900" max="2099" step="1" value="{{$data->tahunmasuk}}" name="tahunmasuk" type="number">
             </div>
             <br>
-            <button type="submit" class="btn btn-success">Tambah Siswa</button>
+            <button type="submit" class="btn btn-success">Edit Siswa</button>
         </div>
     </form>
 @endsection

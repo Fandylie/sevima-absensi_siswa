@@ -30,7 +30,7 @@
                         <td>{{$item->kelas}}</td>
                         <td><a href="mailto:{{$item->email}}">{{$item->email}}</a></td>
                         <td style="display: flex; gap:1vh">
-                            <a href="" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{url('admin/siswa/'.$item->nisn.'/edit')}}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{{url('admin/siswa/'.$item->nisn)}}" method="post">
                                 @csrf
                                 @method('DELETE')

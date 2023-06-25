@@ -117,6 +117,19 @@ class siswaCRUD extends Controller
     public function edit($id)
     {
         //
+
+        $data = tb_siswa::where('nisn',$id)->first();
+        $kelas = tb_kelas::get('namakelas');
+
+
+        return view('admin_edit_siswa')->with([
+            'title'=>'Edit Siswa',
+            'datasiswa'=>true,
+            'data' => $data,
+            'kelas' => $kelas
+        
+        ]);
+        
     }
 
     /**
@@ -129,6 +142,35 @@ class siswaCRUD extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nama' => 'required',
+            'kelas' => 'required',
+            'tempatlahir' => 'required',
+            'tanggallahir' => 'required',
+            'tahunmasuk' => 'required',
+        ],[
+            'nama.required' => 'Nama Harus Di Isi',
+            'kelas.required' => 'Kelas Harus Di Pilih',
+            'tempatlahir.required' => 'Tempat Lahir Harus Di Isi',
+            'tanggallahir.required' => 'Tanggal Harus Di Isi',
+            'tahunmasuk.required' => 'Tahun Masuk Harus Di Pilih',
+        ]);
+
+        $data = [
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => $request->nisn,
+            'agama' => $request->agama,
+            'kelas' => $request->kelas,
+            'jeniskelamin' => $request->jeniskelamin,
+            'tempatlahir' => $request->tempatlahir,
+            'tanggallahir' => $request->tanggallahir,
+            'tahunmasuk' => $request->tahunmasuk,
+        ];
+
+        tb_siswa::where('nisn',$id)->update($data);
+        return redirect('admin/siswa');
+
     }
 
     /**
